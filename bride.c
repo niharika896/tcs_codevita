@@ -14,8 +14,8 @@ int main(){
 	int n,m,i,j,k,l;
 	scanf("%d %d",&n,&m);
 	int arr[n][m];
-	struct charac *data=(struct charac *)malloc((n*m -1)*sizeof(struct charac));
-	struct Max *max=(struct Max *)malloc((n*m -1)*sizeof(struct Max));
+	struct charac *data=(struct charac *)malloc((n*m)*sizeof(struct charac));
+	struct Max *max=(struct Max *)malloc((n*m)*sizeof(struct Max));
 	for(i=0;i<n;i++)			//input
 	for(j=0;j<m;j++)
 	scanf("%d",&arr[i][j]);
@@ -28,16 +28,16 @@ int main(){
 				else{
 					data[count].x=i; data[count].y=j;data[count].c=0;
 					if(i==0){
-						if(j==0){
+						if(j==m-1){
 						for(k=i;k<i+2;k++){
-							for(l=j;l>j-2;l--){
+							for(l=j-1;l<j+1;l++){
 								if(arr[k][l]==1)data[count].c++;
 							}
 						}							
 						}
 						else{
 							for(k=i;k<i+2;k++){
-							for(l=j-1;l>j-2;l--){
+							for(l=j-1;l<j+2;l++){
 								if(arr[k][l]==1)data[count].c++;
 							}
 						};
@@ -46,21 +46,21 @@ int main(){
 					}
 					else if(i==n-1){
 						if(j==0){
-							for(k=i;k>i-2;k--){
+							for(k=i-1;k<i+1;k++){
 							for(l=j;l<j+2;l++){
 								if(arr[k][l]==1)data[count].c++;
 							}
 						};
 						}
 						else if(j==m-1){
-							for(k=i;k>i-2;k--){
-							for(l=j;l>j-2;l--){
+							for(k=i-1;k<i+1;k++){
+							for(l=j-1;l<j+1;l++){
 								if(arr[k][l]==1)data[count].c++;
 							}
 						};
 						}
 						else{
-							for(k=i;k>i-2;k--){
+							for(k=i-1;k<i+1;k++){
 							for(l=j-1;l<j+2;l++){
 								if(arr[k][l]==1)data[count].c++;
 							}
@@ -78,7 +78,7 @@ int main(){
 					}
 					else if(j==m-1){
 						for(k=i-1;k<i+2;k++){
-							for(l=j;l>j-2;j--){
+							for(l=j-1;l<j+1;j++){
 								if(arr[k][l]==1)data[count].c++;
 							}
 						};
