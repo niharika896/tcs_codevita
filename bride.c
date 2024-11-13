@@ -106,7 +106,7 @@ int main(){
 			qcount++;
 		}
 	}
-	if(qcount==1)printf("%d:%d:%d",max[0].x,max[0].y,maxq);			//output
+	if(qcount==1)printf("%d:%d:%d",max[0].x+1,max[0].y+1,maxq-1);			//output
 	else{
 		int steps=n+m-2;
 		for(i=0;i<qcount;i++){
